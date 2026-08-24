@@ -4,51 +4,32 @@
 // #include <vector>
 // #include <unordered_map>
 // #include <algorithm>
+
 using namespace std;
+
+int search(int arr[], int target, int n)
+{
+    int low{}, high{n-1};
+
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+            return mid;
+
+        if (arr[mid] < target)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+
+    return -1;
+}
 
 int main()
 {
 
-    int a[3][3];
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    cout << endl;
-
-    int a2[3][3];
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = i + 1; j < 3; j++)
-        {
-            swap(a[i][j], a[j][i]);
-        }
-        cout << endl;
-    }
-
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
-
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23};
+    cout << search(arr, 2, 12);
     return 0;
 }
