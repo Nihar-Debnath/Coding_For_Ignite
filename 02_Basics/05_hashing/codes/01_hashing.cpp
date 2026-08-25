@@ -14,8 +14,9 @@ int main()
     for (int i = 0; i < arr.size(); i++)
         hash[arr[i]]++;
 
-    for (int i = 0; i < arr.size(); i++)
-        cout << i << " appeared : " << hash[i] << endl;
+    for (int i = 0; i < 20; i++)
+        if (hash[i] > 0)
+            cout << i << " appeared : " << hash[i] << endl;
 
     return 0;
 }

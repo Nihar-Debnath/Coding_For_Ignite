@@ -22,5 +22,16 @@ int main()
         std::cout << i.first << " repeated " << i.second << " times." << std::endl;
     }
 
+    // search for a number in the array
+    int x = 1000000;
+    if (frecq.find(x) != frecq.end())
+    {
+        std::cout << x << " is present in the array." << std::endl;
+    }
+    else
+    {
+        std::cout << x << " is not present in the array." << std::endl;
+    }
+
     return 0;
 }

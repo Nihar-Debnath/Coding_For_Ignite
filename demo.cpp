@@ -1,35 +1,39 @@
-// #include <bits/stdc++.h>
-
 #include <iostream>
-// #include <vector>
-// #include <unordered_map>
-// #include <algorithm>
+#include <unordered_map>
+#include <string>
+#include<vector>
 
 using namespace std;
 
-int search(int arr[], int target, int n)
+void moveZeros(vector<int> &arr)
 {
-    int low{}, high{n-1};
+    int pos{};
 
-    while (low <= high)
+    for (int i = 0; i < arr.size(); i++)
     {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] == target)
-            return mid;
-
-        if (arr[mid] < target)
-            low = mid + 1;
-        else
-            high = mid - 1;
+        if (arr[i] != 0)
+        {
+            arr[pos] = arr[i];
+            pos++;
+        }
     }
 
-    return -1;
+    while (pos < arr.size())
+    {
+        arr[pos] = 0;
+        pos++;
+    }
 }
 
 int main()
 {
+    vector<int> arr = {0, 1, 3, 4, 0, 9};
 
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 23};
-    cout << search(arr, 2, 12);
+    moveZeros(arr);
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
     return 0;
 }
